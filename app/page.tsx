@@ -1,7 +1,7 @@
 import HeroSection from "@/components/HeroSection";
-import FeatureSection from "@/components/FeatureSection";
-import DownloadSection from "@/components/DownloadSection";
-import { LayoutGrid, Filter, Users, Contact, Search, Languages, BarChart3 } from "lucide-react"; // Added Languages icon
+import FeatureSection from "@/components/FeatureSection"; // Assumes you have this generic component
+import DownloadSection from "@/components/DownloadSection"; // Assumes you have this generic component
+import { MapPin, Calendar, Music, BrainCircuit } from "lucide-react";
 
 export default function Home() {
   return (
@@ -13,78 +13,52 @@ export default function Home() {
       <div className="text-center pt-24 pb-12 lg:pt-32 lg:pb-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
-            All Features in One App
+            Explore the Divine
           </h2>
           <p className="text-lg md:text-xl text-slate-500 max-w-3xl mx-auto leading-relaxed">
-            Get started with the Artisan App.
+            Setu App brings the complete Hindu spiritual experience to your fingertips.
           </p>
         </div>
       </div>
 
-      {/* Step 1: Language Selection (NEW) */}
+      {/* Feature 1: Temples */}
       <FeatureSection
-        subtitle=" Select Language"
-        title="Available in Your Local Language"
-        desc="we support 10 languages. Choose from English, Hindi, Gujarati, Tamil, Marathi, and more to navigate the app comfortably in your preferred regional language."
-        image="/language.jpg" // Rename your screenshot to language.jpg
-        icon={Languages}
+        subtitle="Divine Destinations"
+        title="Discover Famous & Local Temples"
+        desc="Explore detailed information about famous pilgrimage sites and discover hidden local temples near you. Get history, timings, and location details in one click."
+        image="/temple-screen.jpg" // Place a screenshot of temple list here
+        icon={MapPin}
       />
 
-      {/* Step 2: Category Selection (Reversed for Zig-Zag layout) */}
+      {/* Feature 2: Calendar (Reversed) */}
       <FeatureSection
-        subtitle=" Browse Categories"
-        title="Select Your Service Category"
-        desc="Choose from a wide range of industries including Skilled Trades, Education, Healthcare, IT, and more. We have organized everything to help you find exactly what you need."
-        image="/category.jpg"
-        icon={LayoutGrid}
+        subtitle="Panchang & Festivals"
+        title="Complete Hindu Calendar"
+        desc="Never miss an auspicious moment. Get daily Panchang, Tithi, and notifications for all major Hindu festivals like Diwali, Holi, and Navratri."
+        image="/calendar-screen.jpg" // Place a screenshot of calendar here
+        icon={Calendar}
         reverse={true}
       />
 
-      {/* Step 3: Subcategory/Profession */}
+      {/* Feature 3: Spiritual Library */}
       <FeatureSection
-        subtitle=" Specific Professions"
-        title="Pinpoint the Right Expert"
-        desc="Drill down into specific professions. Looking for a Teacher, Professor, or a Tutor? Our detailed subcategories ensure you connect with the exact specialist for the job."
-        image="/subcategory.jpg"
-        icon={Filter}
+        subtitle="Mantra, Aarti & Bhajan"
+        title="Immerse in Devotion"
+        desc="A vast library of spiritual content. Read and listen to God stories, daily Mantras, Aartis, Stutis, and Slokas. Find inner peace anytime, anywhere."
+        image="/spiritual-screen.jpg" // Place a screenshot of aarti/mantra here
+        icon={Music}
       />
 
-      {/* Step 4: Artisan Listings (Reversed) */}
+      {/* Feature 4: Articles & Quiz (Reversed) */}
       <FeatureSection
-        subtitle=" Verified Listings"
-        title="Browse Skilled Professionals"
-        desc="View a list of verified artisans near you. Check their ratings, verification badges, and key expertise at a glance before you decide to connect."
-        image="/listing.jpg"
-        icon={Users}
+        subtitle="Knowledge & Quiz"
+        title="Learn & Test Your Knowledge"
+        desc="Read fascinating articles about Sanatan Dharma and challenge yourself with quizzes based on what you read. Enhance your spiritual knowledge playfully."
+        image="/quiz-screen.jpg" // Place a screenshot of quiz/article here
+        icon={BrainCircuit}
         reverse={true}
       />
 
-      {/* Step 5: Details Page */}
-      <FeatureSection
-        subtitle="Comprehensive Details"
-        title="In-Depth Artisan Profiles"
-        desc="Get full transparency. View availability schedules, read detailed bios, check past portfolios, and contact them directly via phone or location navigation."
-        image="/details.jpg"
-        icon={Contact}
-      />
-
-      {/* Step 6: Worker Registration (Reversed) */}
-      <FeatureSection
-        subtitle="Two Types of Users"
-        title="Join as a Skilled Worker"
-        desc="Our platform caters to both customers and professionals. If you are a skilled worker, simply select this option to register your services, create a profile, and start connecting with clients."
-        image="/popup.jpg"
-        icon={Search}
-        reverse={true}
-      />
-      {/* Step 7: Worker Dashboard (NEW) */}
-      <FeatureSection
-        subtitle="Worker Dashboard"
-        title="Track Your Growth & Reach"
-        desc="For artisans: Access a powerful dashboard to track profile views, monitor your overall ratings, manage your portfolio, and update your business profile instantly."
-        image="/dashboard.jpg" // Rename your screenshot to dashboard.jpg
-        icon={BarChart3}
-      />
       <DownloadSection />
 
     </main>

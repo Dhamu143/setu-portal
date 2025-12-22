@@ -46,7 +46,7 @@ export default function DownloadSection() {
 function GooglePlayBadge() {
     return (
         <a
-            href="#"
+            href="https://play.google.com/store/apps/details?id=com.setu.godapp&hl=en"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center cursor-pointer"

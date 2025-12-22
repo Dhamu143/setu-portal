@@ -1,74 +1,128 @@
-
-import { ShieldCheck, Scale, FileText } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { ScrollText, ShieldAlert, BookOpen, Scale, HelpCircle, ArrowRight, UserCheck } from "lucide-react";
 
 export default function TermsPage() {
   return (
-    <main className="min-h-screen bg-slate-50">
+    <main className="min-h-screen bg-orange-50">
+      <Navbar />
 
-      {/* Header */}
-      <div className="bg-primary-900 text-white py-16">
-        <div className="container mx-auto px-6 max-w-4xl text-center">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">Terms & Conditions</h1>
-          <p className="text-primary-100 text-lg">Last Updated: December 2025</p>
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="container mx-auto px-6 max-w-4xl -mt-8 pb-20">
-        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-          
-          <div className="prose prose-slate max-w-none">
-            <h2 className="flex items-center gap-2 text-2xl font-bold text-slate-900 mb-4">
-              <FileText className="text-primary-600" /> 1. Introduction
-            </h2>
-            <p className="text-slate-600 mb-8 leading-relaxed">
-              Welcome to <strong>Artisan App</strong>. By accessing or using our mobile application and website, you agree to be bound by these Terms. If you disagree with any part of the terms, you may not access the Service. This platform serves as a marketplace connecting Users (customers) with independent Service Providers (artisans).
-            </p>
-
-            <h2 className="flex items-center gap-2 text-2xl font-bold text-slate-900 mb-4">
-              <ShieldCheck className="text-primary-600" /> 2. User Responsibilities
-            </h2>
-            <ul className="list-disc pl-5 space-y-2 text-slate-600 mb-8">
-              <li>You must provide accurate and complete information when creating an account.</li>
-              <li>You are responsible for maintaining the confidentiality of your account and password.</li>
-              <li>You agree not to use the platform for any illegal or unauthorized purpose.</li>
-              <li>You must treat all artisans with respect and provide a safe working environment.</li>
-            </ul>
-
-            <h2 className="flex items-center gap-2 text-2xl font-bold text-slate-900 mb-4">
-              <Scale className="text-primary-600" /> 3. For Service Providers (Artisans)
-            </h2>
-            <p className="text-slate-600 mb-4">
-              By registering as an Artisan, you represent and warrant that:
-            </p>
-            <ul className="list-disc pl-5 space-y-2 text-slate-600 mb-8">
-              <li>You have the legal right to work and provide services in your jurisdiction.</li>
-              <li>You hold all necessary licenses, certifications, and insurance required for your trade.</li>
-              <li>You will provide services with a high standard of quality and professionalism.</li>
-              <li>You acknowledge that you are an independent contractor, not an employee of Artisan App.</li>
-            </ul>
-
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">4. Payments & Fees</h2>
-            <p className="text-slate-600 mb-8">
-              Payments are processed securely through our third-party payment providers. We may charge a platform fee or commission on completed jobs. All fees are transparently displayed before booking. Cancellations made within 24 hours of a scheduled job may incur a cancellation fee.
-            </p>
-
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">5. Limitation of Liability</h2>
-            <p className="text-slate-600 mb-8">
-              Artisan App acts solely as a connector. We are not liable for any damages, injuries, or losses arising from the services provided by independent artisans. While we vet professionals, the final engagement is between the User and the Provider.
-            </p>
-
-            <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 mt-8">
-              <h3 className="font-bold text-slate-900 mb-2">Contact Us</h3>
-              <p className="text-slate-600">
-                If you have any questions about these Terms, please contact us at <a href="mailto:support@artisanapp.com" className="text-primary-600 hover:underline">support@artisanapp.com</a>.
-              </p>
-            </div>
+      {/* Hero Header */}
+      <div className="bg-white border-b border-orange-100">
+        <div className="container mx-auto px-6 py-16 md:py-24 text-center">
+          <div className="inline-flex items-center gap-2 bg-orange-100 text-orange-700 px-4 py-1.5 rounded-full text-sm font-bold mb-6 border border-orange-200">
+            <ScrollText size={16} />
+            LEGAL DOCUMENT
           </div>
-
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">
+            Terms of Service
+          </h1>
+          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+            Welcome to Setu App. Please read these terms to understand the rules regarding our spiritual content and community features.
+          </p>
         </div>
       </div>
-   
+
+      <div className="container mx-auto px-6 py-16">
+        <div className="flex flex-col lg:flex-row gap-12 relative">
+          
+          {/* Sidebar */}
+          <aside className="hidden lg:block w-64 flex-shrink-0">
+            <div className="sticky top-28 space-y-1">
+              <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-4 pl-3">Sections</p>
+              {[
+                { id: "intro", label: "1. Introduction" },
+                { id: "content", label: "2. Religious Content" },
+                { id: "conduct", label: "3. User Conduct" },
+                { id: "disclaimer", label: "4. Disclaimer" },
+              ].map((link) => (
+                <a key={link.id} href={`#${link.id}`} className="block px-3 py-2 text-slate-600 hover:text-primary-600 hover:bg-orange-50 rounded-lg text-sm font-medium transition-colors">
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </aside>
+
+          {/* Content */}
+          <div className="flex-1 space-y-8 max-w-4xl">
+            
+            {/* Section 1 */}
+            <section id="intro" className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-orange-100 scroll-mt-28">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-3 bg-orange-100 text-primary-600 rounded-xl">
+                    <Scale size={24} />
+                </div>
+                <h2 className="text-2xl font-bold text-slate-900">1. Introduction</h2>
+              </div>
+              <p className="text-slate-600 leading-relaxed mb-4">
+                By accessing <strong>Setu App</strong>, you agree to these Terms. Setu App is a platform dedicated to providing information related to Hindu religion, temples, festivals, and spiritual literature.
+              </p>
+            </section>
+
+            {/* Section 2 */}
+            <section id="content" className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-orange-100 scroll-mt-28">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-3 bg-yellow-100 text-yellow-700 rounded-xl">
+                    <BookOpen size={24} />
+                </div>
+                <h2 className="text-2xl font-bold text-slate-900">2. Religious Content Usage</h2>
+              </div>
+              <ul className="space-y-4 text-slate-600">
+                <li className="flex gap-3">
+                    <div className="mt-2 w-1.5 h-1.5 bg-primary-500 rounded-full flex-shrink-0" />
+                    <p><strong>Accuracy:</strong> While we strive to provide accurate details regarding Panchang, Tithi, and Rituals, regional variations in Hindu traditions exist. Users are advised to verify with local priests for specific auspicious timings.</p>
+                </li>
+                <li className="flex gap-3">
+                    <div className="mt-2 w-1.5 h-1.5 bg-primary-500 rounded-full flex-shrink-0" />
+                    <p><strong>Copyright:</strong> The articles, original audio recordings of Bhajans, and curated temple information are the property of Setu App. You may not copy or redistribute them for commercial purposes without permission.</p>
+                </li>
+              </ul>
+            </section>
+
+            {/* Section 3 */}
+            <section id="conduct" className="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-orange-100 scroll-mt-28">
+               <div className="flex items-center gap-3 mb-6">
+                <div className="p-3 bg-green-100 text-green-600 rounded-xl">
+                    <UserCheck size={24} />
+                </div>
+                <h2 className="text-2xl font-bold text-slate-900">3. Community Guidelines</h2>
+              </div>
+              <p className="text-slate-600 mb-4">
+                Setu App encourages respectful discussion. When using our community features (comments, quizzes):
+              </p>
+              <div className="bg-orange-50 border border-orange-100 rounded-xl p-6">
+                  <ul className="space-y-3">
+                      {[
+                        "Do not post content that hurts religious sentiments or promotes hate speech.",
+                        "Respect diverse traditions and customs within Sanatan Dharma.",
+                        "Do not use the platform for political propaganda."
+                      ].map((item, i) => (
+                          <li key={i} className="flex items-center gap-3 text-slate-700">
+                              <ShieldAlert size={18} className="text-primary-500" />
+                              {item}
+                          </li>
+                      ))}
+                  </ul>
+              </div>
+            </section>
+
+            {/* Contact Box */}
+            <div className="bg-primary-900 text-orange-50 p-8 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl shadow-orange-900/20">
+                <div>
+                    <h3 className="text-white font-bold text-xl mb-1 flex items-center gap-2">
+                        <HelpCircle size={20}/> Questions about Content?
+                    </h3>
+                    <p className="text-orange-200">Our Dharmik editorial team is here to help.</p>
+                </div>
+                <a href="mailto:dharma@setuapp.com" className="bg-white text-primary-900 px-6 py-3 rounded-lg font-bold hover:bg-orange-50 transition flex items-center gap-2">
+                    Contact Us <ArrowRight size={18} />
+                </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <Footer />
     </main>
   );
 }

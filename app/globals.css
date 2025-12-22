@@ -1,18 +1,22 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
-  --color-primary-900: #1e3a8a;
-  --color-secondary-500: #f97316;
+  /* Divine Saffron Theme */
+  --color-primary-50: #fff7ed;
+  --color-primary-100: #ffedd5;
+  --color-primary-600: #ea580c; /* Deep Saffron */
+  --color-primary-700: #c2410c;
+  --color-primary-900: #7c2d12; /* Deep Maroon/Brown */
+  
+  --color-secondary-500: #f59e0b; /* Gold */
 }
 
 body {
   background-color: #ffffff;
-  color: #0f172a;
-}/* Add this to the bottom of the file */
+  color: #1c1917; /* Warm Grey/Black */
+}
+
+/* Float Animation for Hero Image */
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-15px); }
