@@ -5,7 +5,6 @@ import { ScrollText, ShieldAlert, BookOpen, Scale, HelpCircle, ArrowRight, UserC
 export default function TermsPage() {
   return (
     <main className="min-h-screen bg-orange-50">
-      <Navbar />
 
       {/* Hero Header */}
       <div className="bg-white border-b border-orange-100">
