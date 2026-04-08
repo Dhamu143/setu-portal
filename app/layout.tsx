@@ -1,30 +1,43 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Field Artisan App - Find & Book Local Pros",
-  description: "The easiest way to find trusted plumbers, electricians, and technicians in your area.",
+  metadataBase: new URL("https://setu-ten-rust.vercel.app"),
+  title: "Sanatan — The Divine Experience",
+  description:
+    "The most divine & immersive Hindu Dharma experience. Mantras · Bhajans · Aarti · Horoscope · Temples & more — all in one sacred space.",
+  keywords: [
+    "Sanatan Dharma",
+    "Hindu App",
+    "Mantras",
+    "Bhajans",
+    "Aarti",
+    "Horoscope",
+    "Temples",
+    "Chalisa",
+    "Panchang",
+    "Slokas",
+    "Indian Gods",
+    "Spirituality",
+  ],
+  authors: [{ name: "Sanatan App" }],
+  creator: "Sanatan App",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Sanatan — The Divine Experience",
+    description:
+      "Your digital sacred space for Hindu Dharma — Mantras, Bhajans, Aarti, Horoscope & more.",
+    type: "website",
+    url: "/",
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-slate-50 text-slate-900`}>
-        <Navbar />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
