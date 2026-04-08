@@ -1,30 +1,27 @@
 "use client";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/translations";
 
 export default function Features() {
-  const offerings = [
-    { icon: "🕉️", title: "Mantras", desc: "108+ sacred mantras with Sanskrit text, transliteration and meaning. Listen, read and chant along." },
-    { icon: "🎵", title: "Bhajans", desc: "Thousands of devotional bhajans and kirtans from all traditions — Vaishnav, Shaiva, Shakta and more." },
-    { icon: "🪔", title: "Aarti", desc: "Complete aarti collection for all deities with lyrics, audio and step-by-step puja vidhi guidance." },
-    { icon: "📿", title: "Chalisa", desc: "Hanuman, Durga, Lakshmi, Shiva Chalisa and more — with line-by-line Hindi and English meaning." },
-    { icon: "🏛️", title: "Temples", desc: "Explore famous temples across India — history, darshan timings, significance and travel information." },
-    { icon: "🌟", title: "Horoscope", desc: "Daily, weekly and monthly rashifal for all 12 zodiac signs with Vedic astrology insights." },
-    { icon: "📜", title: "Slokas", desc: "Sacred shlokas from Bhagavad Gita, Vedas, Upanishads with detailed commentary and meaning." },
-    { icon: "📰", title: "Dharma News", desc: "Latest news from the Hindu world — festivals, temple events, spiritual discourses and more." },
-    { icon: "📅", title: "Panchang", desc: "Daily Hindu calendar with tithi, nakshatra, yoga, muhurat and auspicious timings for every occasion." },
-  ];
+  const { language } = useLanguage();
+  const t = translations[language].features;
+  const offeringsTexts = translations[language].offerings;
+
+  const icons = ["🕉️", "🎵", "🪔", "📿", "🏛️", "🌟", "📜", "📰", "📅"];
+  const offerings = offeringsTexts.map((item, index) => ({
+    ...item,
+    icon: icons[index],
+  }));
 
   return (
     <section id="offerings">
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
         <div className="reveal visible">
-          <span className="section-label">✦ Sacred Collection</span>
+          <span className="section-label">{t.label}</span>
           <h2 className="section-title">
-            Our Divine <span>Offerings</span>
+            {t.title} <span>{t.highlight}</span>
           </h2>
-          <p className="section-sub">
-            Everything you need for your daily spiritual practice, curated with
-            devotion and reverence.
-          </p>
+          <p className="section-sub">{t.sub}</p>
         </div>
         <div className="offerings-grid">
           {offerings.map((item, i) => (

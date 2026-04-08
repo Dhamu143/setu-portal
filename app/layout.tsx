@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://setu-ten-rust.vercel.app"),
-  title: "Sanatan — The Divine Experience",
+  title: "Setu Setu Sanatan — The Divine Experience",
   description:
     "The most divine & immersive Hindu Dharma experience. Mantras · Bhajans · Aarti · Horoscope · Temples & more — all in one sacred space.",
   keywords: [
@@ -20,11 +20,11 @@ export const metadata: Metadata = {
     "Indian Gods",
     "Spirituality",
   ],
-  authors: [{ name: "Sanatan App" }],
-  creator: "Sanatan App",
+  authors: [{ name: "Setu Sanatan" }],
+  creator: "Setu Sanatan",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Sanatan — The Divine Experience",
+    title: "Setu Setu Sanatan — The Divine Experience",
     description:
       "Your digital sacred space for Hindu Dharma — Mantras, Bhajans, Aarti, Horoscope & more.",
     type: "website",
@@ -32,12 +32,16 @@ export const metadata: Metadata = {
   },
 };
 
+import { LanguageProvider } from "@/context/LanguageContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }

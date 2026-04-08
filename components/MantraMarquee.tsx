@@ -1,10 +1,11 @@
-export default function MantraMarquee() {
-  const items = [
-    "Aarti", "Bhajans", "Mantras", "Temples", "Slokas",
-    "Horoscope", "Chalisa", "Panchang", "Dharma News", "Wallpapers",
-  ];
+"use client";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/translations";
 
-  // Duplicate for seamless loop
+export default function MantraMarquee() {
+  const { language } = useLanguage();
+  const items = translations[language].marquee;
+
   const all = [...items, ...items];
 
   return (

@@ -7,20 +7,23 @@ export default function ClientEffects() {
     // Custom Cursor
     const cursor = document.getElementById("cursor");
     const ring = document.getElementById("cursorRing");
-    
+
     if (cursor && ring) {
-      let mx = 0, my = 0, rx = 0, ry = 0;
+      let mx = 0,
+        my = 0,
+        rx = 0,
+        ry = 0;
       let frameId: number;
-      
+
       const mouseMove = (e: MouseEvent) => {
         mx = e.clientX;
         my = e.clientY;
         cursor.style.left = mx + "px";
         cursor.style.top = my + "px";
       };
-      
+
       document.addEventListener("mousemove", mouseMove);
-      
+
       const anim = () => {
         rx += (mx - rx) * 0.12;
         ry += (my - ry) * 0.12;
@@ -30,8 +33,10 @@ export default function ClientEffects() {
       };
       anim();
 
-      const interactables = document.querySelectorAll("a, button, .offering-card");
-      
+      const interactables = document.querySelectorAll(
+        "a, button, .offering-card",
+      );
+
       const enterAnim = () => {
         cursor.style.transform = "translate(-50%,-50%) scale(2.2)";
         ring.style.width = "58px";
@@ -42,7 +47,7 @@ export default function ClientEffects() {
         ring.style.width = "38px";
         ring.style.height = "38px";
       };
-      
+
       interactables.forEach((el) => {
         el.addEventListener("mouseenter", enterAnim);
         el.addEventListener("mouseleave", leaveAnim);
@@ -71,9 +76,9 @@ export default function ClientEffects() {
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
-    
+
     // We observe after a small delay to ensure React has rendered
     setTimeout(() => {
       document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));

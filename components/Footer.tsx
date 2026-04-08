@@ -1,16 +1,21 @@
+"use client";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/translations";
+
 export default function Footer() {
+  const { language } = useLanguage();
+  const t = translations[language].footer;
+
   return (
     <footer>
-      <div className="footer-logo">ॐ SANATAN</div>
+      <div className="footer-logo">ॐ SANATAN SETU</div>
       <div className="footer-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
-        <a href="#">Contact Us</a>
-        <a href="#">About</a>
+        <a href="#">{t.privacy}</a>
+        <a href="#">{t.terms}</a>
+        <a href="#">{t.contact}</a>
+        <a href="#">{t.about}</a>
       </div>
-      <div className="footer-copy">
-        © 2025 Sanatan · Made with devotion in India 🇮🇳
-      </div>
+      <div className="footer-copy">{t.copy}</div>
     </footer>
   );
 }

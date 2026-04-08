@@ -1,23 +1,43 @@
 "use client";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/translations";
 
 export default function Reviews() {
+  const { language } = useLanguage();
+  const t = translations[language].reviews;
+  const tStats = translations[language].stats;
+
   const reviews = [
-    { name: "Ramesh Patel", loc: "Ahmedabad, Gujarat", initial: "R", text: "This app has completely transformed my morning routine. I start every day with Hanuman Chalisa and it fills my heart with peace and strength." },
-    { name: "Priya Sharma", loc: "Varanasi, Uttar Pradesh", initial: "P", text: "The offline feature is a blessing. I use it during travel to temples in remote areas. The audio quality of the bhajans is simply divine." },
-    { name: "Suresh Nair", loc: "Thrissur, Kerala", initial: "S", text: "Best spiritual app I have ever used. The horoscope section is accurate and the Panchang helps me plan all religious events perfectly." },
+    {
+      name: "Ramesh Patel",
+      loc: "Ahmedabad, Gujarat",
+      initial: "R",
+      text: "This app has completely transformed my morning routine. I start every day with Hanuman Chalisa and it fills my heart with peace and strength.",
+    },
+    {
+      name: "Priya Sharma",
+      loc: "Varanasi, Uttar Pradesh",
+      initial: "P",
+      text: "The offline feature is a blessing. I use it during travel to temples in remote areas. The audio quality of the bhajans is simply divine.",
+    },
+    {
+      name: "Suresh Nair",
+      loc: "Thrissur, Kerala",
+      initial: "S",
+      text: "Best spiritual app I have ever used. The horoscope section is accurate and the Panchang helps me plan all religious events perfectly.",
+    },
   ];
 
   return (
     <section id="reviews">
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
         <div className="reveal" style={{ textAlign: "center" }}>
-          <span className="section-label">✦ Devotee Stories</span>
+          <span className="section-label">{t.label}</span>
           <h2 className="section-title">
-            Voices of <span>the Divine</span>
+            {t.title} <span>{t.highlight}</span>
           </h2>
           <p className="section-sub" style={{ margin: "0 auto" }}>
-            Millions of devotees have found peace, connection and daily
-            inspiration through Sanatan.
+            {t.sub}
           </p>
         </div>
         <div className="reviews-grid">
@@ -42,19 +62,19 @@ export default function Reviews() {
         >
           <div className="stat-band-item">
             <span className="stat-band-val">4.8★</span>
-            <span className="stat-band-lbl">Average Rating</span>
+            <span className="stat-band-lbl">{tStats.rating}</span>
           </div>
           <div className="stat-band-item">
             <span className="stat-band-val">2M+</span>
-            <span className="stat-band-lbl">Devotees Worldwide</span>
+            <span className="stat-band-lbl">{tStats.users}</span>
           </div>
           <div className="stat-band-item">
             <span className="stat-band-val">50K+</span>
-            <span className="stat-band-lbl">5-Star Reviews</span>
+            <span className="stat-band-lbl">{tStats.fivestar}</span>
           </div>
           <div className="stat-band-item">
             <span className="stat-band-val">108+</span>
-            <span className="stat-band-lbl">Sacred Mantras</span>
+            <span className="stat-band-lbl">{tStats.mantras}</span>
           </div>
         </div>
       </div>

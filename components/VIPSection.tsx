@@ -1,26 +1,38 @@
 "use client";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/translations";
 
 export default function VIPSection() {
-  const sfItems = [
-    { icon: "🔊", title: "High-Quality Audio", desc: "Crystal-clear audio for all bhajans, mantras and aartis — even offline, anytime, anywhere." },
-    { icon: "🌐", title: "Multi-Language Support", desc: "Sanskrit, Hindi, Gujarati, Tamil, Telugu, Bengali — your language, your devotion." },
-    { icon: "📴", title: "100% Offline Access", desc: "Download and access all sacred content without needing an internet connection." },
-    { icon: "🔔", title: "Daily Divine Reminders", desc: "Wake up to morning mantras, get puja reminders and festival notifications automatically." },
-  ];
+  const { language } = useLanguage();
+  const t = translations[language].vip;
+  const tDeities = translations[language].deities;
+  const vipItemsTexts = translations[language].vipItems;
+  const deitiesTexts = translations[language].deityList;
+  const tPhone = translations[language].phone;
 
-  const deities = [
-    { emoji: "🙏", name: "Lord Shiva", role: "Mahadev" },
-    { emoji: "🦚", name: "Lord Krishna", role: "Yogeshwar" },
-    { emoji: "🌸", name: "Goddess Lakshmi", role: "Shri Mata" },
-    { emoji: "🐘", name: "Lord Ganesha", role: "Vighnaharta" },
-    { emoji: "🌺", name: "Goddess Durga", role: "Adi Shakti" },
-    { emoji: "🌞", name: "Lord Rama", role: "Maryada Purush" },
-    { emoji: "🐒", name: "Lord Hanuman", role: "Bajrangbali" },
-    { emoji: "🦢", name: "Goddess Saraswati", role: "Vani Mata" },
-    { emoji: "☀️", name: "Lord Surya", role: "Surya Dev" },
-    { emoji: "🌊", name: "Lord Vishnu", role: "Paalanhaar" },
+  const vipIcons = ["🔊", "🌐", "📴", "🔔"];
+  const sfItems = vipItemsTexts.map((item, index) => ({
+    ...item,
+    icon: vipIcons[index],
+  }));
+
+  const deityEmojis = [
+    "🙏",
+    "🦚",
+    "🌸",
+    "🐘",
+    "🌺",
+    "🌞",
+    "🐒",
+    "🦢",
+    "☀️",
+    "🌊",
   ];
-  
+  const deities = deitiesTexts.map((item, index) => ({
+    ...item,
+    emoji: deityEmojis[index],
+  }));
+
   // Duplicate deities for scrolling track
   const allDeities = [...deities, ...deities];
 
@@ -34,30 +46,41 @@ export default function VIPSection() {
               <div className="phone-3d">
                 <div className="phone-screen">
                   <div className="phone-content">
-                    <div className="phone-header">ॐ SANATAN — आज का दिन</div>
+                    <div className="phone-header">{tPhone.today}</div>
                     <div className="phone-mantra">
-                      "ॐ नमः शिवाय"<br />
-                      <span style={{ fontSize: "0.6rem", color: "var(--text-soft)", fontFamily: '"Lato", sans-serif', fontWeight: 300 }}>Om Namah Shivaya</span>
+                      "{tPhone.mantra}"<br />
+                      <span
+                        style={{
+                          fontSize: "0.6rem",
+                          color: "var(--text-soft)",
+                          fontFamily: '"Lato", sans-serif',
+                          fontWeight: 300,
+                        }}
+                      >
+                        Om Namah Shivaya
+                      </span>
                     </div>
                     <div className="phone-card">
                       <span className="phone-card-icon">🪔</span>
                       <div>
-                        <div className="phone-card-text">MORNING AARTI</div>
+                        <div className="phone-card-text">{tPhone.morning}</div>
                         <div className="phone-card-sub">Shiv Aarti · 4 min</div>
                       </div>
                     </div>
                     <div className="phone-card">
                       <span className="phone-card-icon">🎵</span>
                       <div>
-                        <div className="phone-card-text">HANUMAN CHALISA</div>
-                        <div className="phone-card-sub">Gulshan Kumar · 8 min</div>
+                        <div className="phone-card-text">{tPhone.hanuman}</div>
+                        <div className="phone-card-sub">
+                          Gulshan Kumar · 8 min
+                        </div>
                       </div>
                     </div>
                     <div className="phone-card">
                       <span className="phone-card-icon">🌟</span>
                       <div>
-                        <div className="phone-card-text">YOUR RASHIFAL</div>
-                        <div className="phone-card-sub">Mesh · आज · Auspicious</div>
+                        <div className="phone-card-text">{tPhone.rashifal}</div>
+                        <div className="phone-card-sub">Mesh · Auspicious</div>
                       </div>
                     </div>
                   </div>
@@ -65,17 +88,16 @@ export default function VIPSection() {
               </div>
             </div>
           </div>
-          
+
           <div className="showcase-features">
             <div className="reveal visible">
-              <span className="section-label">✦ The Experience</span>
+              <span className="section-label">{t.label}</span>
               <h2 className="section-title">
-                Built for<br /><span>True Devotion</span>
+                {t.title}
+                <br />
+                <span>{t.highlight}</span>
               </h2>
-              <p className="section-sub">
-                A sacred digital space designed to bring you closer to the divine,
-                every single day.
-              </p>
+              <p className="section-sub">{t.sub}</p>
             </div>
             {sfItems.map((item, i) => (
               <div className="sf-item reveal visible" key={i}>
@@ -91,9 +113,18 @@ export default function VIPSection() {
       </section>
 
       <section id="deities">
-        <div style={{ textAlign: "center", marginBottom: "44px", padding: "0 64px" }} className="reveal visible">
-          <span className="section-label">✦ All Traditions</span>
-          <h2 className="section-title">Beloved <span>Deities</span></h2>
+        <div
+          style={{
+            textAlign: "center",
+            marginBottom: "44px",
+            padding: "0 64px",
+          }}
+          className="reveal visible"
+        >
+          <span className="section-label">{tDeities.label}</span>
+          <h2 className="section-title">
+            {tDeities.title} <span>{tDeities.highlight}</span>
+          </h2>
         </div>
         <div style={{ overflow: "hidden" }}>
           <div className="deities-track">
