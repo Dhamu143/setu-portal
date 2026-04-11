@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
+import ClientEffects from "@/components/ClientEffects";
 import "./globals.css";
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://setu-ten-rust.vercel.app"),
@@ -39,8 +46,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>
-        <LanguageProvider>{children}</LanguageProvider>
+      <body className={plusJakartaSans.className}>
+        <LanguageProvider>
+          <ClientEffects />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

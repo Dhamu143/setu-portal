@@ -2,21 +2,18 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MantraMarquee from "@/components/MantraMarquee";
 import Features from "@/components/Features";
-import VIPSection from "@/components/VIPSection";
 import Reviews from "@/components/Reviews";
 import DownloadCTA from "@/components/DownloadCTA";
 import Footer from "@/components/Footer";
-import ClientEffects from "@/components/ClientEffects";
-
+import VipMember from "@/components/VipMember";
 export default function Home() {
   return (
     <>
-      <ClientEffects />
       <Navbar />
       <Hero />
       <MantraMarquee />
       <Features />
-      <VIPSection />
+      <VipMember />
       <Reviews />
       <DownloadCTA />
       <Footer />

@@ -1,6 +1,7 @@
 "use client";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/translations";
+import { Star } from "lucide-react";
 
 export default function Reviews() {
   const { language } = useLanguage();
@@ -44,7 +45,13 @@ export default function Reviews() {
           {reviews.map((r, i) => (
             <div className="review-card reveal visible" key={i}>
               <div className="review-quote">"</div>
-              <div className="review-stars">★★★★★</div>
+              <div className="review-stars" style={{ display: "flex", gap: "2px", color: "#f59e0b", marginBottom: "12px" }}>
+                <Star size={16} fill="currentColor" />
+                <Star size={16} fill="currentColor" />
+                <Star size={16} fill="currentColor" />
+                <Star size={16} fill="currentColor" />
+                <Star size={16} fill="currentColor" />
+              </div>
               <div className="review-text">{r.text}</div>
               <div className="review-author">
                 <div className="review-avatar">{r.initial}</div>
