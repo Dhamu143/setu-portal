@@ -102,20 +102,23 @@ const sidebarCards: InfoSidebarCard[] = [
 
 export default function ContactPage() {
   return (
-    <InfoPage
-      badge="Contact Us"
-      title="We are here when you need support."
-      description="Reach the Setu Sanatan team for product support, collaborations, media requests, or thoughtful feedback about the experience."
-      highlights={["Support", "Partnerships", "Fast replies"]}
-      panels={panels}
-      sections={sections}
-      sidebarCards={sidebarCards}
-      outro={{
-        title: "Send us a note anytime.",
-        text: "For general questions, the fastest path is still email. We read every message and route it to the right team.",
-        href: "mailto:support@setuapp.com",
-        linkLabel: "Email support",
-      }}
-    />
+    <main>
+      <InfoPage
+        badge="Contact Us"
+        title="We are here when you need support."
+        description="Reach the Setu Sanatan team for product support, collaborations, media requests, or thoughtful feedback about the experience."
+        highlights={["Support", "Partnerships", "Fast replies"]}
+        panels={panels}
+        sections={sections}
+        sidebarCards={sidebarCards}
+        outro={{
+          title: "Send us a note anytime.",
+          text: "For general questions, the fastest path is still email. We read every message and route it to the right team.",
+          href: "mailto:support@setuapp.com",
+          linkLabel: "Email support",
+        }}
+      />
+
+    </main>
   );
 }

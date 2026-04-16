@@ -29,10 +29,46 @@ export default function Reviews() {
     },
   ];
 
+  const scrollableReviews = [...reviews, ...reviews, ...reviews, ...reviews];
+
   return (
-    <section id="reviews">
-      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-        <div className="reveal" style={{ textAlign: "center" }}>
+    <section id="reviews" style={{ width: "100%", overflowX: "hidden", padding: "60px 0" }}>
+      <style>{`
+        .auto-scroll-wrapper {
+          width: 100%;
+          padding: 20px 0;
+          /* Optional: Keeps a slight fade at the very edges of the screen so cards don't cut off sharply */
+          mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+          -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+        }
+        
+        .auto-scroll-track {
+          display: flex;
+          gap: 24px;
+          width: max-content;
+          animation: infinite-scroll 40s linear infinite;
+          /* Add padding to the left so it doesn't start abruptly on load */
+          padding-left: 24px; 
+        }
+
+        .auto-scroll-track:hover {
+          animation-play-state: paused;
+        }
+
+        .review-card-fixed {
+          width: 350px;
+          flex-shrink: 0;
+        }
+
+        @keyframes infinite-scroll {
+          0% { transform: translateX(0); }
+          /* Adjusting the scroll distance based on 4 duplicated sets instead of 3 for ultra-wide screens */
+          100% { transform: translateX(calc(-25% - 6px)); }
+        }
+      `}</style>
+
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
+        <div className="reveal" style={{ textAlign: "center", marginBottom: "40px" }}>
           <span className="section-label">{t.label}</span>
           <h2 className="section-title">
             {t.title} <span>{t.highlight}</span>
@@ -41,9 +77,12 @@ export default function Reviews() {
             {t.sub}
           </p>
         </div>
-        <div className="reviews-grid">
-          {reviews.map((r, i) => (
-            <div className="review-card reveal visible" key={i}>
+      </div>
+
+      <div className="auto-scroll-wrapper">
+        <div className="auto-scroll-track">
+          {scrollableReviews.map((r, i) => (
+            <div className="review-card reveal visible review-card-fixed" key={i}>
               <div className="review-quote">"</div>
               <div className="review-stars" style={{ display: "flex", gap: "2px", color: "#f59e0b", marginBottom: "12px" }}>
                 <Star size={16} fill="currentColor" />
@@ -53,16 +92,19 @@ export default function Reviews() {
                 <Star size={16} fill="currentColor" />
               </div>
               <div className="review-text">{r.text}</div>
-              <div className="review-author">
+              <div className="review-author" style={{ marginTop: "16px", display: "flex", gap: "12px", alignItems: "center" }}>
                 <div className="review-avatar">{r.initial}</div>
                 <div>
-                  <div className="review-name">{r.name}</div>
-                  <div className="review-loc">{r.loc}</div>
+                  <div className="review-name" style={{ fontWeight: "bold" }}>{r.name}</div>
+                  <div className="review-loc" style={{ fontSize: "0.85rem", opacity: 0.8 }}>{r.loc}</div>
                 </div>
               </div>
             </div>
           ))}
         </div>
+      </div>
+
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 20px" }}>
         <div
           className="stats-band reveal visible"
           style={{ maxWidth: "900px", margin: "72px auto 0" }}
