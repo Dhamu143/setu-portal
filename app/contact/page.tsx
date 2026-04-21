@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getBaseUrl, getCanonicalUrl } from "@/components/BaseUrl";
 import InfoPage, {
   type InfoPanel,
   type InfoSection,
@@ -12,10 +13,67 @@ import {
   MessageSquare,
 } from "lucide-react";
 
+const pagePath = "/contact";
+const pageTitle = "Contact Us | Setu Sanatan";
+const pageDescription =
+  "Reach the Setu Sanatan team for support, partnerships, media, and product feedback.";
+const pageKeywords = [
+  "Contact Setu Sanatan",
+  "Setu app support",
+  "Partnerships",
+  "Media inquiries",
+  "Product feedback",
+  "Customer support",
+];
+const canonicalUrl = getCanonicalUrl(pagePath);
+const ogImage = getBaseUrl("/opengraph-image");
+const twitterImage = getBaseUrl("/twitter-image");
+
 export const metadata: Metadata = {
-  title: "Contact Us | Setu Sanatan",
-  description:
-    "Reach the Setu Sanatan team for support, partnerships, media, and product feedback.",
+  title: {
+    absolute: pageTitle,
+  },
+  description: pageDescription,
+  keywords: pageKeywords,
+  alternates: {
+    canonical: canonicalUrl,
+  },
+  authors: [{ name: "Setu Sanatan", url: getBaseUrl() }],
+  creator: "Setu Sanatan",
+  publisher: "Setu Sanatan",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    url: canonicalUrl,
+    siteName: "Setu Sanatan",
+    locale: "en_IN",
+    type: "website",
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: "Setu Sanatan preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: pageTitle,
+    description: pageDescription,
+    images: [twitterImage],
+  },
 };
 
 const panels: InfoPanel[] = [

@@ -1,31 +1,19 @@
 import type { Metadata } from "next";
 import { getBaseUrl, getCanonicalUrl } from "@/components/BaseUrl";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import MantraMarquee from "@/components/MantraMarquee";
-import Features from "@/components/Features";
-import Reviews from "@/components/Reviews";
-import DownloadCTA from "@/components/DownloadCTA";
-import Footer from "@/components/Footer";
-import VipMember from "@/components/VipMember";
 
-const pagePath = "/";
-const pageTitle = "Setu Sanatan - The Divine Experience";
+const pagePath = "/bhajan";
+const pageTitle = "Bhajans | Setu Sanatan";
 const pageDescription =
-  "The most divine and immersive Hindu Dharma experience with mantras, bhajans, aarti, slokas, horoscope, temples, and daily spiritual tools in one sacred space.";
+  "Listen to devotional bhajans and sacred hymns including Bhairav Bhajan, Radha Krishna Bhajan, Durga Stuti, and traditional devotional songs.";
 const pageKeywords = [
-  "Setu Sanatan",
-  "Sanatan Dharma",
-  "Hindu app",
-  "daily devotional app",
-  "Mantras",
   "Bhajans",
-  "Aarti",
-  "Slokas",
-  "Horoscope",
-  "Temples",
-  "Panchang",
-  "Spirituality",
+  "Devotional songs",
+  "Hindu music",
+  "Sacred hymns",
+  "Bhairav Bhajan",
+  "Radha Krishna bhajan",
+  "Durga Stuti",
+  "Indian devotional music",
 ];
 const canonicalUrl = getCanonicalUrl(pagePath);
 const ogImage = getBaseUrl("/opengraph-image");
@@ -78,17 +66,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
-  return (
-    <>
-      <Navbar />
-      <Hero />
-      <MantraMarquee />
-      <Features />
-      <VipMember />
-      <Reviews />
-      <DownloadCTA />
-      <Footer />
-    </>
-  );
+export default function BhajanLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return children;
 }

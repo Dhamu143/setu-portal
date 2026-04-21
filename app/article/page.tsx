@@ -1,5 +1,4 @@
 "use client";
-import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Heart, Zap, Wind, Droplets, Moon, Sparkles, BookOpen } from "lucide-react";

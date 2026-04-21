@@ -1,5 +1,4 @@
 "use client";
-import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Music, Heart, Headphones, Sparkles, BookOpen, Mic2 } from "lucide-react";

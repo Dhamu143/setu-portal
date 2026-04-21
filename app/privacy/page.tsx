@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getBaseUrl, getCanonicalUrl } from "@/components/BaseUrl";
 import InfoPage, {
   type InfoPanel,
   type InfoSection,
@@ -6,10 +7,67 @@ import InfoPage, {
 } from "@/components/InfoPage";
 import { Bell, Database, Lock, MapPin, Shield } from "lucide-react";
 
+const pagePath = "/privacy";
+const pageTitle = "Privacy Policy | Setu Sanatan";
+const pageDescription =
+  "Learn how Setu Sanatan handles profile data, temple discovery, notifications, and account privacy.";
+const pageKeywords = [
+  "Setu Sanatan privacy",
+  "Privacy policy",
+  "Data protection",
+  "User privacy",
+  "Account security",
+  "Personal data",
+];
+const canonicalUrl = getCanonicalUrl(pagePath);
+const ogImage = getBaseUrl("/opengraph-image");
+const twitterImage = getBaseUrl("/twitter-image");
+
 export const metadata: Metadata = {
-  title: "Privacy Policy | Setu Sanatan",
-  description:
-    "Learn how Setu Sanatan handles profile data, temple discovery, notifications, and account privacy.",
+  title: {
+    absolute: pageTitle,
+  },
+  description: pageDescription,
+  keywords: pageKeywords,
+  alternates: {
+    canonical: canonicalUrl,
+  },
+  authors: [{ name: "Setu Sanatan", url: getBaseUrl() }],
+  creator: "Setu Sanatan",
+  publisher: "Setu Sanatan",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    url: canonicalUrl,
+    siteName: "Setu Sanatan",
+    locale: "en_IN",
+    type: "website",
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: "Setu Sanatan preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: pageTitle,
+    description: pageDescription,
+    images: [twitterImage],
+  },
 };
 
 const panels: InfoPanel[] = [

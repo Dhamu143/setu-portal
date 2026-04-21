@@ -1,5 +1,5 @@
 # Setu App
-> Setu App - Sanatan Dharma, Daily Darshan & Hindu Temples URL: https://setu-ten-rust.vercel.app
+> Setu App - Sanatan Dharma, Daily Darshan & Hindu Temples.
 
 Your digital bridge to Sanatan Dharma, Hindu Temples, Daily Panchang, and Indian Gods.
 
@@ -11,11 +11,11 @@ Setu App is an expansive platform focusing on:
 - Building a devoted spiritual community
 
 ## Available Public Routes
-- **Home**: [https://setu-ten-rust.vercel.app](/)
+- **Home**: [/](/)
   The main landing page featuring comprehensive information about the app's offerings.
-- **Terms of Service**: [https://setu-ten-rust.vercel.app/terms](/terms)
+- **Terms of Service**: [/terms](/terms)
   Rules and community guidelines surrounding the usage of the Setu App.
-- **Privacy Policy**: [https://setu-ten-rust.vercel.app/privacy](/privacy)
+- **Privacy Policy**: [/privacy](/privacy)
   Information about how user location data and application usage is securely handled.
 
 ## Legal & Compliance
